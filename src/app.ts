@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 
+const errorMiddleware = require("./middleware/error")
+
 const app: Application = express();
 
 // Middleware
@@ -26,6 +28,6 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 
-
+app.use(errorMiddleware)
 
 module.exports = app;

@@ -5,7 +5,7 @@ const conncetDatabase = () => {
     .connect(process.env.DB, {
       //   useNewUrlParse: true,
       //   useCreateIndex: true,
-      useUnifiedTopology: true,
+      // useUnifiedTopology: true,
     })
     .then(() => {
       console.log("Mongodb Connection Successfull");
