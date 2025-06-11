@@ -3,16 +3,15 @@ const server = require("./app")
 import dotenv from "dotenv"
 import path from "path";
 
-//Require File
-const conncetDatabase = require("./config/Database")
 
 /* ========DOT ENV CONFIG FILE========= */
 dotenv.config({ path: path.resolve(__dirname, './config/config.env') });
 
+//Require File
+const conncetDB = require("./config/Database")
 
 
-conncetDatabase()
-// console.log(process.env.DB)
+conncetDB()
 
 // SERVER RUNNING
 server.listen(process.env.PORT, () => {

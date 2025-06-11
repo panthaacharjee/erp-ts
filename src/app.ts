@@ -27,6 +27,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
+app.get("/", (req:Request, res:Response)=>{
+  res.status(200).json({
+    success:true,
+    message:"API SUCCESSFULL"
+  })
+})
 
 app.use(errorMiddleware)
 
