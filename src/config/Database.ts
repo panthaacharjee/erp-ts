@@ -9,7 +9,9 @@ const conncetDatabase = () => {
     })
     .then(() => {
       console.log("Mongodb Connection Successfull");
-    });
+    }).catch((err:Error)=>{
+      console.log(err)
+    })
 };
 
 module.exports = conncetDatabase;
