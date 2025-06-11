@@ -1,6 +1,6 @@
 const expressRoute = require("express");
 const router = expressRoute.Router();
-const { registerEmployee, getUsers} = require("../controllers/authController.ts")
+const { registerEmployee, getUsers} = require("../controllers/authController")
 
 
 /* ====================== USER AUTHENTICATION ======================= */
