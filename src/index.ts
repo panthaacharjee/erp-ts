@@ -5,7 +5,7 @@ import path from "path";
 
 
 /* ========DOT ENV CONFIG FILE========= */
-dotenv.config({ path: path.resolve(__dirname, './config/config.env') });
+dotenv.config();
 
 //Require File
 const conncetDB = require("./config/Database")
