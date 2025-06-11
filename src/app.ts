@@ -27,6 +27,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
+const user = require("./routes/authRoutes")
+
+app.use("/api/v1", user)
+
 app.get("/", (req:Request, res:Response)=>{
   res.status(200).json({
     success:true,
