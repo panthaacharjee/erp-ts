@@ -1,12 +1,20 @@
-import app from './app';
+//Import File
+const server = require("./app")
+import dotenv from "dotenv"
+import path from "path";
 
-const dotenv = require("dotenv")
+//Require File
+const conncetDatabase = require("./config/Database")
+
+/* ========DOT ENV CONFIG FILE========= */
+dotenv.config({ path: path.resolve(__dirname, './config/config.env') });
 
 
-dotenv.config({path:"./config/config.env"})
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server running on port 4000`);
+conncetDatabase()
+// console.log(process.env.DB)
+
+// SERVER RUNNING
+server.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
-
-export default server;

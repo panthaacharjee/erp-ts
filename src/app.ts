@@ -1,13 +1,31 @@
 import express, { Application, Request, Response } from 'express';
 
+const cors = require("cors")
+const bodyParser = require('body-parser')
+const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
+
 const app: Application = express();
 
 // Middleware
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(
+  fileUpload({ limits: { fieldSize: 100 * 1024 * 1024  }, useTempFiles: true })
+);
+app.use(express.json({ limit: "50mb" }));
 
-// Routes
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello TypeScript Express!');
-});
+// Configure CORS
+const corsOptions = {
+  origin: 'http://localhost:3000', // Your Next.js frontend
+  credentials: true, // REQUIRED for cookies
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-export default app;
+app.use(cors(corsOptions));
+app.use(cookieParser());
+
+
+
+
+module.exports = app;
